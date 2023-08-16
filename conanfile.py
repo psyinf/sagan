@@ -7,6 +7,7 @@ class vsg_conan_example(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     requires = [ ("vsg/1.0.5")  
                 ,("catch2/3.4.0")
+                ,("entt/3.11.1")
                     
                 #waiting for PR
                 #,("vsgimgui/0.1.0")

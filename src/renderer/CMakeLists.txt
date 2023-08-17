@@ -1,7 +1,7 @@
 project(renderer LANGUAGES CXX)
 include(GNUInstallDirs)
 
-find_package(entt CONFIG REQUIRED)
+find_package(EnTT CONFIG REQUIRED)
 find_package(vsg CONFIG REQUIRED)
 
 

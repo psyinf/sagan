@@ -6,6 +6,9 @@ include(cmake/conan_config.cmake)
 include(cmake/PreventInSourceBuilds.cmake)
 include(cmake/coverage.cmake)
 
+conan_cmake_configure(REQUIRES fmt/6.1.2
+                      GENERATORS cmake_find_package)
+
 conan_cmake_autodetect(settings)
 conan_cmake_install(PATH_OR_REFERENCE .
                     BUILD missing

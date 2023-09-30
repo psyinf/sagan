@@ -3,6 +3,8 @@
 #include <functional>
 #include <vsg/all.h>
 
+namespace renderer {
+
 class ViewerCore
 {
 public:
@@ -11,6 +13,10 @@ public:
     bool frame();
 
     vsg::ref_ptr<vsg::Camera> getCamera();
+
+    vsg::ref_ptr<vsg::Viewer> getViewer();
+
+    vsg::ref_ptr<vsg::Group> getSceneRoot();
 
 private:
     vsg::ref_ptr<vsg::Viewer>          viewer = vsg::Viewer::create();
@@ -21,3 +27,4 @@ private:
     vsg::ref_ptr<vsg::Camera> camera;
     bool                      firstFrame = true;
 };
+} // namespace renderer 

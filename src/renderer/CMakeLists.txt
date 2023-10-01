@@ -12,7 +12,7 @@ target_sources(${PROJECT_NAME}
         LoadOperation.h
         ViewerCore.cpp
         ViewerCore.h
-)
+ "SceneEntity.h" "SceneFactory.h")
 
 target_include_directories(
     ${PROJECT_NAME}

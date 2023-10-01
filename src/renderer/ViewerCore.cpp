@@ -25,7 +25,6 @@ void ViewerCore::setup(/*entt::registry &reg*/)
                                                     static_cast<double>(window->extent2D().height),
                                                 /*nearfar ratio*/ 0.01,
                                                 1000);
-
     camera = vsg::Camera::create(perspective, lookAt, vsg::ViewportState::create(window->extent2D()));
 #if STAGE_1
     updater = DirectUpdater::create(sceneRoot, viewer, camera, reg); // SceneUpdater::create(sceneRoot, viewer, queue);
@@ -60,7 +59,8 @@ bool ViewerCore::frame()
     {
         firstFrame = false;
     }
-    auto advance = viewer->advanceToNextFrame();
+
+    const auto advance = viewer->advanceToNextFrame();
     if (advance)
     {
         // pass any events into EventHandlers assigned to the Viewer

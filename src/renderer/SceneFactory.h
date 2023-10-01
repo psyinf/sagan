@@ -17,7 +17,7 @@ public:
     }
 
     /**
-     * \brief Make a 
+     * \brief Make an entity to be attached to the scene
      */
     auto makeSceneEntity(vsg::ref_ptr<vsg::Node> node) -> vsg::ref_ptr<SceneEntity>
     {

@@ -17,3 +17,11 @@ conan_cmake_install(PATH_OR_REFERENCE .
 enable_testing()
 add_subdirectory(src)
 add_subdirectory(test)
+
+install(DIRECTORY
+		data/
+	DESTINATION
+		${CMAKE_INSTALL_BINDIR}/data
+	COMPONENT
+		${RUNTIME_COMPONENT}
+)

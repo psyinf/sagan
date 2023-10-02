@@ -8,11 +8,14 @@ find_package(vsg CONFIG REQUIRED)
 add_library(${PROJECT_NAME} STATIC)
 
 target_sources(${PROJECT_NAME} 
-    PRIVATE
-        LoadOperation.h
-        ViewerCore.cpp
-        ViewerCore.h
- "SceneEntity.h" "SceneFactory.h")
+PUBLIC
+    ViewerCore.h
+    SceneEntity.h
+    SceneFactory.h
+    LoadOperation.h>  
+PRIVATE
+    ViewerCore.cpp
+)
 
 target_include_directories(
     ${PROJECT_NAME}
@@ -33,15 +36,3 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
     DEBUG_POSTFIX "d"
 )
-install(
-    TARGETS ${PROJECT_NAME}
-    EXPORT ${PROJECT_NAME}-config
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-
-install(
-    EXPORT ${PROJECT_NAME}-config
-    NAMESPACE ${PROJECT_NAME}::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-
-install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/${PROJECT_NAME}/
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})

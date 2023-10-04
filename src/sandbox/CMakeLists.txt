@@ -13,6 +13,7 @@ target_link_libraries(
 ${PROJECT_NAME}
 	PRIVATE
 		renderer
+        foundation
 		yaml-cpp::yaml-cpp
 )
 

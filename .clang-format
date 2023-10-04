@@ -3,6 +3,9 @@ BasedOnStyle: Microsoft
 AllowShortLambdasOnASingleLine: All
 AllowAllParametersOfDeclarationOnNextLine: 'false'
 AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: 'true'
+AllowShortBlocksOnASingleLine :  'true'
+AlwaysBreakTemplateDeclarations: MultiLine
 BinPackParameters: 'false'
 BinPackArguments: 'false'
 BreakBeforeBraces: Custom

@@ -1,5 +1,5 @@
 #pragma once
-#include <ErrorTrace.h>
+#include "ErrorTrace.h"
 #include <nlohmann/json.hpp>
 #include <yaml-cpp/yaml.h>
 
@@ -71,22 +71,21 @@ inline static T load(const std::string& fileName)
             }
             if (fileName.ends_with(".json"))
             {
-                auto conf_item = nlohmann::json::parse(std::ifstream(fileName)).get<T>();
+                auto conf_item = nlohmann::json::parse(std::ifstream(fileName));
                 configItems.try_emplace(fileName, conf_item);
-                return conf_item;
+                return conf_item.get<T>();
             }
             else if (fileName.ends_with(".yaml"))
             {
                 YAML::Node config = YAML::LoadFile(fileName);
                 auto       conf_item = yaml2json(config);
                 configItems.try_emplace(fileName, conf_item);
-                return conf_item;
+                return conf_item.get<T>();
             }
             throw std::invalid_argument("No parser for " + fileName);
         }
         catch (const std::exception& e)
         {
-            errorTrace::printErrorTrace();
             throw std::invalid_argument("Error reading " + fileName + ": " + e.what());
         }
     }

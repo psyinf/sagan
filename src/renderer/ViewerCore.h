@@ -2,13 +2,14 @@
 #include <entt/entt.hpp>
 #include <functional>
 #include <vsg/all.h>
+#include "ViewerConfig.h"
 
 namespace renderer {
 
 class ViewerCore
 {
 public:
-    void setup(/*entt::registry &reg*/);
+    void setup(config::Viewer&& viewer_configuration = {});
 
     bool frame();
 

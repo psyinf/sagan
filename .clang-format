@@ -5,7 +5,7 @@ AllowAllParametersOfDeclarationOnNextLine: 'false'
 AllowShortFunctionsOnASingleLine: Inline
 AllowShortIfStatementsOnASingleLine: 'true'
 AllowShortBlocksOnASingleLine :  'true'
-AlwaysBreakTemplateDeclarations: MultiLine
+AlwaysBreakTemplateDeclarations: Yes
 BinPackParameters: 'false'
 BinPackArguments: 'false'
 BreakBeforeBraces: Custom

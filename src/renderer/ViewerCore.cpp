@@ -1,7 +1,7 @@
 #include "ViewerCore.h"
 using namespace renderer;
 
-void ViewerCore::setup(/*entt::registry &reg*/)
+void ViewerCore::setup(config::Viewer&& viewer_configuration)
 {
     options->sharedObjects = vsg::SharedObjects::create();
 

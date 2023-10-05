@@ -1,9 +1,9 @@
 project(renderer LANGUAGES CXX)
 include(GNUInstallDirs)
 
-find_package(EnTT CONFIG REQUIRED)
-find_package(vsg CONFIG REQUIRED)
-
+find_package(EnTT REQUIRED)
+find_package(vsg REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 
@@ -12,10 +12,10 @@ PUBLIC
     ViewerCore.h
     SceneEntity.h
     SceneFactory.h
-    LoadOperation.h>  
+    LoadOperation.h
 PRIVATE
     ViewerCore.cpp
-)
+ "JsonSerializer.h" "ViewerConfig.h")
 
 target_include_directories(
     ${PROJECT_NAME}
@@ -27,6 +27,7 @@ target_link_libraries(
     PUBLIC
         EnTT::EnTT
         vsg::vsg
+        nlohmann_json::nlohmann_json
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES 

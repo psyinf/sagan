@@ -9,7 +9,7 @@
 int main(int argc, char** argv)
 try
 {
-    auto                 nf2 = config::load<renderer::config::Viewer>("data/config/viewer.yaml");
+    auto             nf2 = config::load<renderer::config::Viewer>("data/config/viewer.yaml");
 
     renderer::ViewerCore viewerCore;
 

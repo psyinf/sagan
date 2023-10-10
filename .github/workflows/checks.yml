@@ -15,8 +15,8 @@ jobs:
         with:
           style: file
           lines-changed-only: true
-          tidy-checks: '-*'
-
+          tidy-checks: -*
+          version: 16 # todo find minimal viable version
       - name: Fail fast?!
         if: steps.linter.outputs.checks-failed > 0
         run: echo "Some files failed the linting checks!"

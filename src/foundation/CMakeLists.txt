@@ -1,32 +1,27 @@
-project(renderer LANGUAGES CXX)
+project(foundation LANGUAGES CXX)
+include (CheckIncludeFiles)
 include(GNUInstallDirs)
-
-find_package(EnTT REQUIRED)
-find_package(vsg REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} INTERFACE)
 
 target_sources(${PROJECT_NAME} 
-PUBLIC
-    ViewerCore.h
-    SceneEntity.h
-    SceneFactory.h
-    LoadOperation.h
+INTERFACE
+    YamlJson.h
+    ErrorTrace.h
 PRIVATE
-    ViewerCore.cpp
- "JsonSerializer.h" "ViewerConfig.h")
+)
 
 target_include_directories(
     ${PROJECT_NAME}
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_link_libraries(
     ${PROJECT_NAME}
-    PUBLIC
-        EnTT::EnTT
-        vsg::vsg
+    INTERFACE
+        yaml-cpp #TODO: fixed in un-released version
         nlohmann_json::nlohmann_json
 )
 

@@ -8,9 +8,8 @@ class vsg_conan_example(ConanFile):
     requires = [ ("vsg/1.0.5")  
                 ,("catch2/3.4.0")
                 ,("entt/3.11.1")
-                    
-                #waiting for PR
-                #,("vsgimgui/0.1.0")
+                ,("yaml-cpp/0.8.0")  
+                ,("nlohmann_json/3.11.2")
                ]
     generators = "cmake_find_package_multi"
     
